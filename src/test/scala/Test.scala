@@ -1,0 +1,3 @@
+@main def test1()={
+
+}
