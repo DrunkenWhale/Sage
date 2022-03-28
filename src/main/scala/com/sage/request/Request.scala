@@ -3,8 +3,11 @@ package com.sage.request
 import com.sage.Workflow
 
 import java.net.http.HttpRequest
+import com.sage.request.meta.Header
+import com.sage.request.meta.Arg
+import com.sage.request.meta.Body
 
-case class Request()
+case class Request(header: Header, arg: Arg, body: Body)
 
 object Request {
 

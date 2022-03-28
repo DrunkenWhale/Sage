@@ -1,8 +1,6 @@
-package com.sage.request
+package com.sage.request.meta
 
-import com.sun.net.httpserver.Headers
-
-private final case class Header(kvList: List[(Key, Value)] = List())
+private[request] final case class Header(kvList: List[(Key, Value)] = List())
 
 object Header {
 
@@ -15,7 +13,7 @@ object Header {
   extension (header: Header) {
 
     def append(key: Key, value: Value): Header = apply(header.kvList.appended(key, value))
-    
+
     def append(kv: (Key, Value)*): Header = apply(header.kvList.appendedAll(kv))
 
   }
