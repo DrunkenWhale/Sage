@@ -1,9 +1,14 @@
 package com.sage
 
-class Workflow {
+import java.net.http.HttpClient
 
+class Workflow {
+  val httpClient: HttpClient = HttpClient.newHttpClient()
 }
 
-object Workflow{
-
+object Workflow {
+  extension (self: Workflow) {
+    def send(): Unit ={
+    }
+  }
 }
