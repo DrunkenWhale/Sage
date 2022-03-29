@@ -1,7 +1,7 @@
 package com.sage
 
 import com.sage.request.meta.body.{FileBody, FormBody, InputStreamBody}
-import com.sage.request.model.Request
+import com.sage.request.request.Request
 import com.sage.response.Response
 
 import java.net.URI
@@ -48,7 +48,7 @@ object Workflow {
                 .ofFile(file.filePath)
 
             case input: InputStreamBody => HttpRequest.BodyPublishers
-                .ofInputStream(null)
+                .ofInputStream(input.inputStreamSupplier)
           }
         )
         builder.build()

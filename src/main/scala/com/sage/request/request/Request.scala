@@ -1,4 +1,4 @@
-package com.sage.request.model
+package com.sage.request.request
 
 import com.sage.Workflow
 import com.sage.request.meta.body.Body
