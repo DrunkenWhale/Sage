@@ -1,8 +1,9 @@
 package com.sage.request.meta
 
-private[request] final case class Header(kvList: List[(Key, Value)] = List())
+private[sage] final case class Header(kvList: List[(Key, Value)] = List())
 
-object Header {
+// unuseful extends
+object Header extends KVMeta {
 
   def apply(): Header = new Header()
 

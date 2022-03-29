@@ -1,22 +1,22 @@
 package com.sage
 
-import com.sage.request.Request
+import com.sage.request.meta.body.{FileBody, FormBody, InputStreamBody}
+import com.sage.request.model.Request
 import com.sage.response.Response
 
-import java.net.http.HttpClient
+import java.net.URI
+import java.net.http.{HttpClient, HttpRequest, HttpResponse}
 import java.time.Duration
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class Workflow {
-  val httpClient: HttpClient = HttpClient
-      .newBuilder()
-      .connectTimeout(Duration.ofMillis(3000))
-      .build()
+private class Workflow {
 
-  val tasks: ListBuffer[Future[Response]] = ListBuffer.empty
+  private val httpClientBuilder: HttpClient.Builder = HttpClient.newBuilder()
+
+  lazy val httpClient: HttpClient = httpClientBuilder.build()
 
 }
 
@@ -24,9 +24,43 @@ object Workflow {
 
   extension (self: Workflow) {
 
-    def addTask(task: Future[Request]): Workflow = {
-      self.tasks.addOne(task)
-      self
+    def executeTask(task: Request): Response = {
+
+      val request: HttpRequest = {
+
+        val builder = HttpRequest.newBuilder()
+        builder.uri(
+          URI.create(s"${task.url}?${task.arg}")
+        )
+
+        task.header
+            .kvList
+            .foreach((k, v) => builder.setHeader(k, v))
+
+        builder.method(
+          task.method,
+          task.body match {
+
+            case form: FormBody => HttpRequest.BodyPublishers
+                .ofString(form.toString)
+
+            case file: FileBody => HttpRequest.BodyPublishers
+                .ofFile(file.filePath)
+
+            case input: InputStreamBody => HttpRequest.BodyPublishers
+                .ofInputStream(null)
+          }
+        )
+        builder.build()
+
+      }
+
+      val res = self.httpClient.sendAsync(
+        request,
+        HttpResponse.BodyHandlers.ofString()
+      )
+
+      null
     }
 
   }

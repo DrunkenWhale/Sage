@@ -1,6 +1,10 @@
 package com.sage.request.meta
 
-private[request] final case class Arg(kvList: List[(Key, Value)] = List())
+private[sage] class Arg(val kvList: List[(Key, Value)] = List()) extends KVMeta {
+
+  override def toString: String = super.convertToString(kvList)
+
+}
 
 object Arg {
 
@@ -10,11 +14,11 @@ object Arg {
 
   def apply(kvSeq: (Key, Value)*): Arg = new Arg(kvSeq.toList)
 
-  extension (header: Arg) {
+  extension (arg: Arg) {
 
-    def append(key: Key, value: Value): Arg = apply(header.kvList.appended(key, value))
+    def append(key: Key, value: Value): Arg = new Arg(arg.kvList.appended(key, value))
 
-    def append(kv: (Key, Value)*): Arg = apply(header.kvList.appendedAll(kv))
+    def append(kv: (Key, Value)*): Arg = new Arg(arg.kvList.appendedAll(kv))
 
   }
 
