@@ -10,3 +10,14 @@ class InputStreamRequest(val url: String,
                          override val body: InputStreamBody) extends Request {
 
 }
+
+object InputStreamRequest {
+
+  def apply(url: String,
+            method: String = "GET",
+            header: RequestHeader = RequestHeader(),
+            arg: RequestArg = RequestArg(),
+            body: InputStreamBody): InputStreamRequest
+  = new InputStreamRequest(url, method, header, arg, body)
+
+}

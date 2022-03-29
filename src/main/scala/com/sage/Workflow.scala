@@ -18,11 +18,13 @@ private class Workflow {
 
   private val httpClientBuilder: HttpClient.Builder = HttpClient.newBuilder()
 
-  lazy val httpClient: HttpClient = httpClientBuilder.build()
+  private lazy val httpClient: HttpClient = httpClientBuilder.build()
 
 }
 
 object Workflow {
+
+  def apply(): Workflow = new Workflow()
 
   extension (self: Workflow) {
 

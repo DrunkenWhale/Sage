@@ -27,7 +27,7 @@ object Request {
       lambda(self)
     }
 
-    def ~>(workflow: Workflow): Future[Response[String]] = {
+    def ~~>(workflow: Workflow): Future[Response[String]] = {
       workflow.executeTask(self)
     }
 
