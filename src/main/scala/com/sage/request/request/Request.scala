@@ -1,18 +1,19 @@
 package com.sage.request.request
 
 import com.sage.Workflow
-import com.sage.request.meta.body.Body
-import com.sage.request.meta.{Arg, Header}
+import com.sage.request.meta.body.RequestBody
+import com.sage.request.meta.{RequestArg, RequestHeader}
 import com.sage.response.Response
 
 import java.net.http.HttpRequest
+import scala.concurrent.Future
 
 trait Request {
   val url: String
   val method: String
-  val header: Header
-  val arg: Arg
-  val body: Body
+  val header: RequestHeader
+  val arg: RequestArg
+  val body: RequestBody
 }
 
 object Request {
@@ -26,7 +27,7 @@ object Request {
       lambda(self)
     }
 
-    def ~>(workflow: Workflow): Response = {
+    def ~>(workflow: Workflow): Future[Response[String]] = {
       workflow.executeTask(self)
     }
 

@@ -1,9 +1,9 @@
 package com.sage.request.meta.body
 
-import com.sage.request.meta.body.Body
+import com.sage.request.meta.body.RequestBody
 import com.sage.request.meta.{KVMeta, Key, Value}
 
-private[sage] class FormBody(val kvList: List[(Key, Value)] = List()) extends Body with KVMeta {
+private[sage] class FormBody(val kvList: List[(Key, Value)] = List()) extends RequestBody with KVMeta {
 
   override def toString: String = super.convertToString(kvList)
 
