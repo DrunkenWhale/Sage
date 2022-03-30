@@ -11,6 +11,8 @@ object RequestHeader extends KVMeta {
 
   def apply(kvSeq: (Key, Value)*): RequestHeader = new RequestHeader(kvSeq.toList)
 
+  def apply(kvSeq: List[(Key, Value)]): RequestHeader = new RequestHeader(kvSeq)
+
   extension (header: RequestHeader) {
 
     def append(key: Key, value: Value): RequestHeader = apply(header.kvList.appended(key, value))

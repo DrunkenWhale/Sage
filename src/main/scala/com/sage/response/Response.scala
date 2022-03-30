@@ -4,7 +4,7 @@ import scala.concurrent.Future
 import concurrent.ExecutionContext.Implicits.global
 
 class Response(val statusCode: Int,
-               val headers: Map[String, String],
+               val header: Map[String, String],
                val content: String,
                val url: String,
                val version: String) {

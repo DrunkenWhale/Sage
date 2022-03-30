@@ -17,6 +17,8 @@ object FormBody {
 
   def apply(kvSeq: (Key, Value)*): FormBody = new FormBody(kvSeq.toList)
 
+  def apply(kvList: List[(Key, Value)]): FormBody = new FormBody(kvList)
+
   extension (body: FormBody) {
 
     def append(key: Key, value: Value): FormBody = new FormBody(body.kvList.appended(key, value))

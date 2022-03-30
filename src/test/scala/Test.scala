@@ -30,7 +30,7 @@ import concurrent.ExecutionContext.Implicits.global
     request
   }
   val log1 = (response: Response) => {
-    println(s"${response.headers} ${response.content}")
+    println(s"${response.header} ${response.content}")
     response
   }
   val request = FormRequest(url = "http://www.baidu.com") ~> log ~~> Workflow() ~> log1

@@ -14,6 +14,8 @@ object RequestArg {
 
   def apply(kvSeq: (Key, Value)*): RequestArg = new RequestArg(kvSeq.toList)
 
+  def apply(kvSeq: List[(Key, Value)]): RequestArg = new RequestArg(kvSeq)
+
   extension (arg: RequestArg) {
 
     def append(key: Key, value: Value): RequestArg = new RequestArg(arg.kvList.appended(key, value))
