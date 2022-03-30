@@ -28,7 +28,7 @@ object Workflow {
 
   extension (self: Workflow) {
 
-    def executeTask(task: Request): Future[Response[String]] = {
+    def executeTask(task: Request): Future[Response] = {
 
       val request: HttpRequest = {
 

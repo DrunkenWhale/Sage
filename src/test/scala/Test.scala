@@ -25,12 +25,21 @@ import scala.concurrent.Future
 import concurrent.ExecutionContext.Implicits.global
 
 @main def test2(): Unit = {
-  val request = FormRequest(url = "http://www.baidu.com") ~~> Workflow()
-  request.onComplete(resTry =>
-    if (resTry.isSuccess) {
-      println(resTry.get.content)
-    } else {
-      println("Failed")
-    }
-  )
+  val log = (request: Request) => {
+    println(s"${request.url} ${request.header} ${request.body} ")
+    request
+  }
+  val log1 = (response: Response) => {
+    println(s"${response.headers} ${response.content}")
+    response
+  }
+  val request = FormRequest(url = "http://www.baidu.com") ~> log ~~> Workflow() ~> log1
+      request.onComplete(resTry =>
+        if (resTry.isSuccess) {
+          println(resTry.get.content)
+        } else {
+          println("Failed")
+        }
+      )
+  Thread.sleep(500)
 }
