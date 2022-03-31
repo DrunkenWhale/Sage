@@ -1,7 +1,7 @@
-package com.cloves.request.request
+package com.sage.request.request
 
-import com.cloves.request.meta.body.FormBody
-import com.cloves.request.meta.{RequestArg, RequestHeader}
+import com.sage.request.meta.body.FormBody
+import com.sage.request.meta.{RequestArg, RequestHeader}
 
 private class FormRequest(val url: String,
                           val method: String,

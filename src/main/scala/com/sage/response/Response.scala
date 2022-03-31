@@ -1,7 +1,6 @@
-package com.cloves.response
+package com.sage.response
 
 import scala.concurrent.Future
-import concurrent.ExecutionContext.Implicits.global
 
 class Response(val statusCode: Int,
                val header: Map[String, String],
@@ -19,13 +18,5 @@ object Response {
             url: String,
             version: String): Response
   = new Response(statusCode, headers, content, url, version)
-
-  extension (self: Future[Response]) {
-
-    def ~>(lambda: Response => Response): Future[Response] = {
-      self.map(lambda)
-    }
-
-  }
 
 }

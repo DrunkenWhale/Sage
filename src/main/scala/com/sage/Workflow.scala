@@ -1,8 +1,8 @@
-package com.cloves
+package com.sage
 
-import com.cloves.request.meta.body.{FileBody, FormBody, InputStreamBody}
-import com.cloves.request.request.Request
-import com.cloves.response.Response
+import com.sage.request.meta.body.{FileBody, FormBody, InputStreamBody}
+import com.sage.request.request.Request
+import com.sage.response.Response
 
 import java.net.URI
 import java.net.http.{HttpClient, HttpRequest, HttpResponse}
@@ -28,7 +28,7 @@ object Workflow {
 
   extension (self: Workflow) {
 
-    def executeTask(task: Request): Future[Response] = {
+    private[sage] def executeTask(task: Request): Future[Response] = {
 
       val request: HttpRequest = {
 

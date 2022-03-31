@@ -1,6 +1,6 @@
-package com.cloves.request.meta
+package com.sage.request.meta
 
-private[cloves] final case class RequestHeader(kvList: List[(Key, Value)] = List())
+private[sage] final case class RequestHeader(kvList: List[(Key, Value)] = List())
 
 // unuseful extends
 object RequestHeader extends KVMeta {

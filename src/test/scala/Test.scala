@@ -1,11 +1,12 @@
-import com.cloves.Workflow
-import com.cloves.request.request.Request
+import com.sage.Workflow
+import com.sage.request.request.Request
 
 import java.net.URI
 import java.net.http.HttpRequest.BodyPublisher
 import java.net.http.{HttpClient, HttpRequest, HttpResponse}
-import com.cloves.request.request.FormRequest
-import com.cloves.response.Response
+import com.sage.request.request.FormRequest
+import com.sage.response.Response
+import com.sage.dsl.*
 
 import scala.concurrent.Future
 
@@ -33,13 +34,21 @@ import concurrent.ExecutionContext.Implicits.global
     println(s"${response.header} ${response.content}")
     response
   }
-  val request = FormRequest(url = "http://www.baidu.com") ~> log ~~> Workflow() ~> log1
-      request.onComplete(resTry =>
-        if (resTry.isSuccess) {
-          println(resTry.get.content)
-        } else {
-          println("Failed")
-        }
-      )
+  val request = FormRequest(url = "http://www.baidu.com") ~~> log ~~>> Workflow() ~~> log1
+  request.onComplete(resTry =>
+    if (resTry.isSuccess) {
+      println(resTry.get.content)
+    } else {
+      println("Failed")
+    }
+  )
   Thread.sleep(500)
+}
+
+@main def test3(): Unit = {
+  (GET("http://www.baidu.com") ~~>> Workflow()).onComplete(
+    x=>println(x.get.content)
+  )
+  Thread.sleep(500)
+
 }

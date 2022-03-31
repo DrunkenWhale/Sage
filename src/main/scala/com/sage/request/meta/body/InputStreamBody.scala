@@ -1,9 +1,9 @@
-package com.cloves.request.meta.body
+package com.sage.request.meta.body
 
 import java.io.InputStream
 import java.util.function.Supplier
 
-private[cloves] class InputStreamBody(val inputStreamSupplier: Supplier[InputStream]) extends RequestBody {
+private[sage] class InputStreamBody(val inputStreamSupplier: Supplier[InputStream]) extends RequestBody {
 
 }
 
