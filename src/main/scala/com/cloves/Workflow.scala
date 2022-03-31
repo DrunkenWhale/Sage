@@ -1,8 +1,8 @@
-package com.sage
+package com.cloves
 
-import com.sage.request.meta.body.{FileBody, FormBody, InputStreamBody}
-import com.sage.request.request.Request
-import com.sage.response.Response
+import com.cloves.request.meta.body.{FileBody, FormBody, InputStreamBody}
+import com.cloves.request.request.Request
+import com.cloves.response.Response
 
 import java.net.URI
 import java.net.http.{HttpClient, HttpRequest, HttpResponse}

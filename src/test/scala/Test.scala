@@ -1,11 +1,11 @@
-import com.sage.Workflow
-import com.sage.request.request.Request
+import com.cloves.Workflow
+import com.cloves.request.request.Request
 
 import java.net.URI
 import java.net.http.HttpRequest.BodyPublisher
 import java.net.http.{HttpClient, HttpRequest, HttpResponse}
-import com.sage.request.request.FormRequest
-import com.sage.response.Response
+import com.cloves.request.request.FormRequest
+import com.cloves.response.Response
 
 import scala.concurrent.Future
 

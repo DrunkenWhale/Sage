@@ -1,9 +1,9 @@
-package com.sage.request.request
+package com.cloves.request.request
 
-import com.sage.Workflow
-import com.sage.request.meta.body.RequestBody
-import com.sage.request.meta.{RequestArg, RequestHeader}
-import com.sage.response.Response
+import com.cloves.Workflow
+import com.cloves.request.meta.body.RequestBody
+import com.cloves.request.meta.{RequestArg, RequestHeader}
+import com.cloves.response.Response
 
 import java.net.http.HttpRequest
 import scala.concurrent.Future

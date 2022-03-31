@@ -1,9 +1,9 @@
-package com.sage.request.meta.body
+package com.cloves.request.meta.body
 
 import java.io.FileNotFoundException
 import java.nio.file.{Files, Path}
 
-private[sage] class FileBody(val filePath: Path) extends RequestBody {
+private[cloves] class FileBody(val filePath: Path) extends RequestBody {
 
 }
 

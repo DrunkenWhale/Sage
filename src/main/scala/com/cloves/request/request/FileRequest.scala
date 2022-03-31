@@ -1,7 +1,7 @@
-package com.sage.request.request
+package com.cloves.request.request
 
-import com.sage.request.meta.body.FileBody
-import com.sage.request.meta.{RequestArg, RequestHeader}
+import com.cloves.request.meta.body.FileBody
+import com.cloves.request.meta.{RequestArg, RequestHeader}
 
 private class FileRequest(val url: String,
                           val method: String,

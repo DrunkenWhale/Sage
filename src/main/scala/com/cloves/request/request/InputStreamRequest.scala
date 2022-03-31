@@ -1,7 +1,7 @@
-package com.sage.request.request
+package com.cloves.request.request
 
-import com.sage.request.meta.body.{FormBody, InputStreamBody}
-import com.sage.request.meta.{RequestArg, RequestHeader}
+import com.cloves.request.meta.body.{FormBody, InputStreamBody}
+import com.cloves.request.meta.{RequestArg, RequestHeader}
 
 class InputStreamRequest(val url: String,
                          val method: String,

@@ -1,8 +1,8 @@
-package com.sage
+package com.cloves
 
-import com.sage.request.meta.{RequestArg, RequestHeader}
-import com.sage.request.meta.body.FormBody
-import com.sage.request.request.{FormRequest, Request}
+import com.cloves.request.meta.{RequestArg, RequestHeader}
+import com.cloves.request.meta.body.FormBody
+import com.cloves.request.request.{FormRequest, Request}
 
 package object dsl {
   def GET(url: String, header: Map[String, String], arg: Map[String, String]): Request = {

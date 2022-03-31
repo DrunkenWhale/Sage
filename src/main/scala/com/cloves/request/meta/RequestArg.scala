@@ -1,6 +1,6 @@
-package com.sage.request.meta
+package com.cloves.request.meta
 
-private[sage] class RequestArg(val kvList: List[(Key, Value)] = List()) extends KVMeta {
+private[cloves] class RequestArg(val kvList: List[(Key, Value)] = List()) extends KVMeta {
 
   override def toString: String = super.convertToString(kvList)
 
