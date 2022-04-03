@@ -38,7 +38,7 @@ object Workflow {
           URI.create(s"${task.url}?${task.arg}")
         )
 
-        builder.timeout(Duration.ofMillis(5000))
+        builder.timeout(Duration.ofMillis(30000))
 
         task.header
             .kvList
