@@ -6,7 +6,7 @@ import java.net.http.HttpRequest.BodyPublisher
 import java.net.http.{HttpClient, HttpRequest, HttpResponse}
 import com.sage.request.request.FormRequest
 import com.sage.response.Response
-import com.sage.dsl.*
+import com.sage.dsl.DSL.*
 
 import java.util.concurrent.ConcurrentLinkedQueue
 import scala.concurrent.Future

@@ -1,5 +1,6 @@
-package com.sage
+package com.sage.dsl
 
+import com.sage.Workflow
 import com.sage.request.meta.{RequestArg, RequestHeader}
 import com.sage.request.meta.body.FormBody
 import com.sage.request.request.{FormRequest, Request}
@@ -8,8 +9,8 @@ import com.sage.response.Response
 import concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-package object dsl {
-  
+object DSL {
+
   def GET(url: String,
           header: Map[String, String] = Map.empty,
           arg: Map[String, String] = Map.empty): Request = {

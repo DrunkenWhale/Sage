@@ -8,7 +8,7 @@ used by http request
 
 ```scala
 import com.sage.Workflow
-import com.sage.dsl.{GET, ~~>>}
+import com.sage.dsl.DSL.{GET, ~~>>}
 
 @main def test3(): Unit = {
   (GET("http://www.baidu.com", header = Map("114" -> "514")) ~~>> Workflow()).onComplete(
@@ -26,7 +26,7 @@ import com.sage.dsl.{GET, ~~>>}
 import com.sage.Workflow
 import com.sage.request.request.{FormRequest, Request}
 import com.sage.response.Response
-import com.sage.dsl.*
+import com.sage.dsl.DSL.*
 
 @main def test2(): Unit = {
   val log = (request: Request) => {
